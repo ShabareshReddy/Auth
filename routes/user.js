@@ -3,6 +3,9 @@ const userRouter=express.Router();
 const {validateSignup}=require("../utils/validation");
 const UserModel=require("../models/user");
 const bcrypt=require("bcrypt");
+const jwt=require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
 
 
 const app=express();
@@ -32,9 +35,37 @@ userRouter.post("/signup",async(req,res)=>{
     }
 });
 
-userRouter.post("/login",(req,res)=>{
-    res.send("user logged in");
+userRouter.post("/login",async(req,res)=>{
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required" });
+    }
+
+    const user = await UserModel.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: "Invalid email or password" });
+    }
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    if (!isPasswordMatch) {
+      return res.status(400).json({ message: "Invalid email or password" });
+    }
+
+    const token = jwt.sign(
+      { _id: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: "8h" }
+    );
+    return res.status(200).json({
+      message: "Login successful",
+      token,
+    });
+  }catch(err) {
+    return res.status(500).json({ message: "Server error", error: err.message });
+  }
 });
+       
 
 userRouter.get("/profile",(req,res)=>{
     res.send("user profile");

@@ -13,3 +13,7 @@ It creates the backend config with package.json
 * npm i bcrypt   -->   It is for  password hashing
 * npm i jsonwebtoken --> It is for the verify th user every time with this jsonwebtoken
 * npm i nodemon  -->   It is library which we can change the code it is automaically changes without saving the files
+
+-->Server starts using 
+* npm run dev
+-->initializes the skeleton of the userRouter

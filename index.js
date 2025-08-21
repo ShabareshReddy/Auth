@@ -1,12 +1,16 @@
 const express=require('express');
-const app=express();
 const dotenv=require('dotenv');
+
 dotenv.config();
+const app=express();
+
+app.use(express.json());
+
+const userRouter=require("./routes/user")
 
 
-app.get('/',(req,res)=>{
-    res.send('Hello World');
-});
+app.use("/user",userRouter);
+
 
 
 app.listen(process.env.PORT,()=>{

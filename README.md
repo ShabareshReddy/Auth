@@ -20,3 +20,9 @@ It creates the backend config with package.json
 -->Connected the mongodb String to the mongoose and connected to the cluster
 -->created the UserModel for storing the userdata in and added the userSchema
 
+* npm i validator 
+-->validates the user before signup with all credentials before storing into the Database
+---->Created the First route 
+     *** /user/signup with validationsignup and checks user exists or not and password hash using bcrypt 
+         and create the user
+     

@@ -17,3 +17,6 @@ It creates the backend config with package.json
 -->Server starts using 
 * npm run dev
 -->initializes the skeleton of the userRouter
+-->Connected the mongodb String to the mongoose and connected to the cluster
+-->created the UserModel for storing the userdata in and added the userSchema
+

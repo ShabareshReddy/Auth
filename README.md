@@ -23,6 +23,8 @@ It creates the backend config with package.json
 * npm i validator 
 -->validates the user before signup with all credentials before storing into the Database
 ---->Created the routes
+
      ** /user/signup with validationsignup and checks user exists or not and password hash using bcrypt 
          and create the user
+         
      ** /user/login 

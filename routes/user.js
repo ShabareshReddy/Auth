@@ -5,7 +5,9 @@ const UserModel=require("../models/user");
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
 const dotenv = require("dotenv");
+const userAuth = require("../middleware/auth");
 dotenv.config();
+
 
 
 const app=express();
@@ -67,8 +69,13 @@ userRouter.post("/login",async(req,res)=>{
 });
        
 
-userRouter.get("/profile",(req,res)=>{
-    res.send("user profile");
+userRouter.get("/profile",userAuth,(req,res)=>{
+    const loggedInUser=req.user;
+    const {name,email}= loggedInUser;
+    res.status(200).json({
+        name,
+        email
+    });
 });
 
 userRouter.put("/profile",(req,res)=>{

@@ -23,7 +23,11 @@ It creates the backend config with package.json
 * npm i validator 
 -->validates the user before signup with all credentials before storing into the Database
 ---->Created the routes
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 50c6a4c8e5b1d7678978e07d7c5283561419a19d
 post  -->   ** /user/signup with validationsignup and checks user exists or not and password hash using bcrypt 
          and create the user
          
@@ -36,5 +40,8 @@ post  -->   ** /user/profile we can check with teh middleware userAuth and the h
 put   -->  ** /user/profile  update the user thrown the jwt token
 
 delete --> ** /user/profile delete the loggedInuser through the Id
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50c6a4c8e5b1d7678978e07d7c5283561419a19d

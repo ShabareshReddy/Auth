@@ -15,7 +15,6 @@ app.use(cors({
 const userRouter=require("./routes/user")
 
 
-app.use("/", userRouter);
 app.use('/api', userRouter);
 
 

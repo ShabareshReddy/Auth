@@ -9,10 +9,6 @@ const userAuth = require("../middleware/auth");
 dotenv.config();
 
 
-
-const app=express();
-app.use(express.json()); 
-
 userRouter.post("/signup",async(req,res)=>{
     try{
         validateSignup(req);

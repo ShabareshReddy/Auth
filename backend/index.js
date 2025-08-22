@@ -4,13 +4,19 @@ const mongoose =require("mongoose");
 const connectDb=require("./db");
 dotenv.config();
 const app=express();
+const cors = require('cors');
 
 app.use(express.json());
+app.use(cors({
+    origin: process.env.cors_origin,
+    credentials: true
+}));
 
 const userRouter=require("./routes/user")
 
 
 app.use("/user",userRouter);
+
 
 
 connectDb().then(()=>{

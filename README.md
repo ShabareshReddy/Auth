@@ -1,20 +1,20 @@
 UserAuthentication Management ---->>
 
- ## Flow of the webapplication:--->>>
- 
-   User see the signup page -- Enter the User credentials
-                   |
-                   |   ( If the data is valid "User created successfully" )
-                   |
-  it navigates to the login page --- Login With same email and password
-                   |
-                   |   ( if the user is in the Database token generate and stores in teh local storage then is navigates to the Profile page  )
-                   |
-  Next you can update the profile or delete the profile 
-                   |
-                   |  
-  (If user deleted then navigate to the signup page)
-                
+## Flow of the Web Application
+
+- **Signup Page**  
+  - User enters the credentials  
+  - If valid → "User created successfully" → Navigate to Login page
+  - if not valid → "user data required"
+
+- **Login Page**  
+  - User logs in with email & password  
+  - If valid → JWT token generated & stored in localStorage → Navigate to Profile page  
+
+- **Profile Page**  
+  - User can **update profile** or **delete account**  
+  - If deleted → Redirect back to Signup page  
+
 
  ## 🛠️ Tech Stack
 ### **Frontend**

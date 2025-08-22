@@ -115,7 +115,29 @@ delete --> ** /user/profile delete the loggedInuser through the Id
    - Displays data only if JWT token is valid  
 
 --> Start the development server:  
-* npm run dev 
+* npm run dev
+
+
+
+# 🚀 Project Deployment (Render)
+
+This project is deployed on **Render** for both frontend and backend.
+
+---
+
+## 🌐 Live Links
+- **Frontend:** [https://your-frontend-url.onrender.com](https://auth-1-tiwv.onrender.com/)  
+- **Backend:** [https://your-backend-url.onrender.com]((https://auth-1-tiwv.onrender.com))
+
+---
+
+## ⚙️ Frontend (React/Vite)
+1. Push code to GitHub.  
+2. On Render → **New Web Service** → connect repo → select `frontend/`.  
+3. **Build Command:**  
+   ```bash
+   npm install && npm run build
+
 
 
 

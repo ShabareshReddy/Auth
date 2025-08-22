@@ -78,12 +78,47 @@ userRouter.get("/profile",userAuth,(req,res)=>{
     });
 });
 
-userRouter.put("/profile",(req,res)=>{
-    res.send("user profile updated");
+userRouter.put("/profile",userAuth,async(req,res)=>{
+  try{
+     const loggedInUser=req.user;
+     const {name, password}=req.body;
+     const user=await UserModel.findById(loggedInUser._id);
+     if(!user){
+      return res.status(404).json({
+        message: "User not found"
+     });
+     }
+     if(name){
+      user.name=name;
+     }
+     if(password){
+      const hashpassword=await bcrypt.hash(password,10);
+      user.password=hashpassword;  
+     }
+     await user.save();
+       return res.status(200).json({
+        message: "User profile updated successfully",
+      })
+  }catch(err){
+    res.status(400).send("ERROR " + err.message);
+  } 
 });
 
-userRouter.delete("/profile",(req,res)=>{
-    res.send("user profile deleted");
+userRouter.delete("/profile",userAuth,async(req,res)=>{
+  try{
+     const loggedInUser =req.user;
+     const user=await UserModel.findByIdAndDelete(loggedInUser._id);
+     if(!user){
+      return res.status(404).json({
+        message: "User not found"
+      });
+     }
+     res.status(200).json({
+        message: "User deleted successfully"
+     })
+  }catch(err){
+    res.status(400).send("ERROR " + err.message);
+  }
 });
 
 module.exports=userRouter;

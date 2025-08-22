@@ -24,7 +24,17 @@ It creates the backend config with package.json
 -->validates the user before signup with all credentials before storing into the Database
 ---->Created the routes
 
-     ** /user/signup with validationsignup and checks user exists or not and password hash using bcrypt 
+post  -->   ** /user/signup with validationsignup and checks user exists or not and password hash using bcrypt 
          and create the user
          
-     ** /user/login 
+post  -->   ** /user/login credentials valid or not checks in the DB if it is valid generated the jwt tokem and
+             verify the user 
+
+post  -->   ** /user/profile we can check with teh middleware userAuth and the he is person whole loggedin with 
+                correct credentials the profile fetced succesfuuly
+
+put   -->  ** /user/profile  update the user thrown the jwt token
+
+delete --> ** /user/profile delete the loggedInuser through the Id
+
+

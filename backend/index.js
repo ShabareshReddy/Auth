@@ -14,7 +14,7 @@ app.use(cors({
 
 const userRouter=require("./routes/user")
 
-app.use('/api', userRouter);
+app.use('/', userRouter);
 
 
 connectDb().then(()=>{

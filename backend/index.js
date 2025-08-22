@@ -14,15 +14,20 @@ app.use(cors({
 
 const userRouter=require("./routes/user")
 
-app.use('/', userRouter);
+
+app.use("/", userRouter);
+
 
 
 connectDb().then(()=>{
     console.log("Database connected successfully");
+    app.listen(process.env.PORT,()=>{
+        console.log(`Server is running on port ${process.env.PORT}`);
+    });
 }).catch((err)=>{
     console.error("ConnectDb failed:", err);
 })
 
 
-module.exports = app;
+
 

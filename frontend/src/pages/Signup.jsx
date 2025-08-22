@@ -14,7 +14,7 @@ const Signup = () => {
     try {
       const res = await API.post('/signup', form);
       setMsg(res.data.message || 'Signup successful');
-      setTimeout(() => navigate('/login'), 1500); // redirect after 1.5s
+      setTimeout(() => navigate('/login'), 1500); 
     } catch (err) {
       setMsg(err.response?.data?.message || 'Signup failed');
     }

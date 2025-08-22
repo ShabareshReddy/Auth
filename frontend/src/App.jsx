@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route, Link, Navigate, BrowserRouter } from 'react-router-dom';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -8,7 +9,7 @@ const PrivateRoute = ({ children }) => {
   return token ? children : <Navigate to="/login" />;
 };
 
-export default function App() {
+const  App=()=> {
   return (
     <BrowserRouter>
      <Routes>
@@ -28,3 +29,5 @@ export default function App() {
    
   );
 }
+
+export default App;

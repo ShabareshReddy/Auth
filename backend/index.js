@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors({
-    origin: process.env.cors_origin,
+    origin: process.env.FRONTENT_URL,
     credentials: true
 }));
 
